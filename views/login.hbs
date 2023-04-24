@@ -1,0 +1,12 @@
+<h2>Welcome Back</h2>
+<h3>Login here!</h3>
+<form action="/auth/login" method="POST">
+  <label for="username">Username:</label>
+  <input type="text" name="username" required />
+  <label for="passowrd">Password:</label>
+  <input type="password" name="password" required />
+  <button type="submit">Log In</button>
+</form>
+{{#if message}}
+  <h3 class="error">{{message}}</h3>
+{{/if}}
