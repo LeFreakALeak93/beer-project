@@ -32,7 +32,6 @@ router.post("/auth/signup", (req, res, next) => {
             } else {
                 // Username is available
                 // Hash password
-                console.log("Im here")
                 const salt = bcrypt.genSaltSync()
                 const hash = bcrypt.hashSync(password, salt)
 
