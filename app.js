@@ -22,7 +22,7 @@ require("./config")(app);
 const capitalize = require("./utils/capitalize");
 const projectName = "second-project";
 
-app.locals.appTitle = `${capitalize(CraftyBrews)} created with IronLauncher`;
+app.locals.appTitle = `CraftyBrews created with IronLauncher`;
 
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");
