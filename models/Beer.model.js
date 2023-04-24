@@ -25,6 +25,6 @@ const beerSchema = new Schema({
   },
 });
 
-const Beer = model("Beer", userSchema);
+const Beer = model("Beer", beerSchema);
 
 module.exports = Beer;
