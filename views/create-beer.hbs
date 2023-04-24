@@ -1,0 +1,32 @@
+<div class="content-box-wrapper">
+    <div>
+        <h1>Add new beer</h1>
+        <div>
+            <svg></svg>
+        </div>
+
+        <form action="/beer/create-beer" method="POST">
+            <label for="name">Name</label>
+            <input type="text" name="name">
+
+            <label for="beer-type">Beer type</label>
+            <select name="type">
+                <option value="IPA">IPA</option>
+                <option value="Lager">Lager</option>
+                <option value="Stout">Stout</option>
+                <option value="Bock Beer">Bock Beer</option>
+            </select>
+
+            <label for="description">Description</label>
+            <input type="text" name="description">
+
+            <label for="price">Price</label>
+            <input type="number" name="price">
+
+            <label for="alcoholPercentage">Alcohol percentage</label>
+            <input type="text" name="alcoholPercentage">
+
+            <button>Add beer</button>
+        </form>
+    </div>
+</div>
