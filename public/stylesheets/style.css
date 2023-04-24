@@ -44,6 +44,18 @@ p {
   width: 60vw;
 }
 
+.content-box-wrapper {
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  margin: 0;
+  height: 90vh;
+}
+
+.form-element {
+  margin-top: 30px;
+}
+
 .footer-fixed-bottom-wrap {
   width: 100%;
   height: auto;
