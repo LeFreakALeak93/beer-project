@@ -1,60 +1,80 @@
-const router = require("express").Router();
+const router = require("express").Router()
 const User = require("../models/User.model")
-const bcrypt = require("bcrypt");
-//GET route to display the login page to users
+const bcrypt = require("bcrypt")
+
 router.get("/auth/signup", (req, res, next) => {
     res.render("signup")
 })
-//POST route to process the sign up form data
-router.post('/signup', (req, res, next) => {
+
+router.post("/auth/signup", (req, res, next) => {
     const { username, password } = req.body
+
+    // Validation
+    // Check if username is empty
     if (username === "") {
-        res.render("signup", { message: "The username cannot be empty" })
+        res.render("signup", { message: "Username cannot be empty" })
         return
     }
-    if (password.length < 8) {
-        res.render("signup", { message: "Your passowrd must be at least 8 characters in length" })
+
+    if (password.length < 4) {
+        res.render("signup", { message: "Password has to be minimum 4 characters" })
         return
     }
-    User.findOne({ username })
+
+    // Validation passed
+    // Check if username is already taken
+    User.find({ username: username })
         .then(userFromDB => {
             console.log(userFromDB)
-            if (userFromDB !== null) {
-                res.render("signup", { message: "Username is already taken. Please choose another username." })
+            if (userFromDB.length !== 0) {
+                res.render("signup", { message: "Username is already taken" })
+
             } else {
+                // Username is available
+                // Hash password
+                console.log("Im here")
                 const salt = bcrypt.genSaltSync()
                 const hash = bcrypt.hashSync(password, salt)
-                User.create({ username: username, password: hash })
+
+                // Create user
+                User.create({ username, password: hash })
                     .then(createdUser => {
-                        console.log(createdUser);
                         res.redirect("/auth/login")
                     })
-                    .catch(err => { next(err) })
+                    .catch(err => next(err))
             }
         })
 })
-//GET route to display the login page
-router.get("/login"), (req, res, next) => {
+
+router.get("/auth/login", (req, res, next) => {
     res.render("login")
-}
-//POST route to process the login form data
+})
+
 router.post("/auth/login", (req, res, next) => {
     const { username, password } = req.body
+
+    // Find user in database by username
     User.findOne({ username })
         .then(userFromDB => {
-            if (userFromDB === null) {
+            if (!userFromDB) {
+                // User not found in database => Show login form
                 res.render("login", { message: "Wrong credentials" })
                 return
             }
+
+            // User found in database
+            // Check if password from input form matches hashed password from database
             if (bcrypt.compareSync(password, userFromDB.password)) {
+                // Password is correct => Login user
                 req.session.user = userFromDB
                 req.session.user.password = null
-                res.redirect("/profile")
-                console.log("This is the session: ".req.session)
+                console.log("This is the session: ", req.session)
+                res.render("profile")
             } else {
                 res.render("login", { message: "Wrong credentials" })
                 return
             }
         })
 })
-module.exports = router
+
+module.exports = router;
