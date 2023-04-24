@@ -1,12 +1,38 @@
-<h2>Welcome Back</h2>
-<h3>Login here!</h3>
-<form action="/auth/login" method="POST">
-  <label for="username">Username:</label>
-  <input type="text" name="username" required />
-  <label for="passowrd">Password:</label>
-  <input type="password" name="password" required />
-  <button type="submit">Log In</button>
-</form>
-{{#if message}}
-  <h3 class="error">{{message}}</h3>
-{{/if}}
+<div class="content-box-wrapper">
+  <div>
+    <h1>Nice to see you again! 😊</h1>
+    
+    
+    
+     <form class="forms" action="/auth/login" method="POST">
+      <div class="form-group form-element">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
+      </div>
+      <div class="form-group form-element">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+      </div>
+      
+      <button type="submit" class="btn btn-warning form-element">Log in now</button>
+    </form>
+
+    
+    
+{{!--     <form action="/auth/login" method="POST">
+      <label for="username">Username:</label>
+      <input type="text" name="username" required />
+      <label for="passowrd">Password:</label>
+      <input type="password" name="password" required />
+      <button type="submit">Log In</button>
+    </form> --}}
+
+
+    {{#if message}}
+      <h3 class="error">{{message}}</h3>
+    {{/if}}
+
+
+
+  </div>
+</div>
