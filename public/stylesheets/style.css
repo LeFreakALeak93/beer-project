@@ -91,6 +91,14 @@ p {
   max-width: 300px;
 }
 
+.form-check {
+  margin-top: 10px;
+}
+
+.form-check-input {
+  margin-top: 0.1rem;
+}
+
 .footer-fixed-bottom-wrap {
   width: 100%;
   height: auto;
