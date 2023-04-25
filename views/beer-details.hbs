@@ -1,28 +1,91 @@
-<div>
-    <div>
-        <img src="" alt="Beer">
-        <svg src="" alt="Reviews"></svg>
-        <a href="">See all reviews</a>
-    </div>
-    <div>
-        <div>
-        <a><svg src=""></svg>Add to wishlist</a>
-        <button onclick="location.href='/beer-edit'"><svg></svg></button>
-        <button onclick="location.href='/beer-remove'"><svg></svg></button>
-        </div>
-        <h1>Name Beer XXX</h1>
-        <h3>Placeholder</h3>
-        <p></p>
-        <p>Price:</p>
+<div class="beer-details-wrapper">
+    <div class="beer-details">
+    <div class="beer-details-first-container">
 
-
-        <div>
-            <button>+</button>
-            <input type="number">
-            <button>-</button>
-            <button>Add to cart</button>
+        <div class="beer-details-image-container">
+            <img src="{{beer.ImgPath}}" alt="Beer">
         </div>
 
+        <div class="beer-details-first-container__information">
+
+            <div class="beer-details-buttons">
+
+                <button class="beer-details-favorite-button"><img src="/images/icon-heart-outline.svg"></img>Add to wishlist</button>
+
+                <button onclick="location.href='/beer-edit/beerId'"><img src="/images/icon-edit.svg">Edit</button>
+                <button onclick="location.href='/beer-remove/beerId'"><img src="/images//icon-delete.svg">Remove</button>
+
+            </div>
+
+        <div>
+
+            <h1>{{beer.name}}</h1>
+            <h3>{{beer.type}}</h3>
+            <p>Price:<b> {{beer.price}}</b></p>
+            <p>{{beer.description}}</p>
+            <p>{{beer.alcoholPercentage}}</p>
+
+        </div>
+
+        </div>
+
     </div>
 
+
+
+    <div class="beer-details-second-container">
+
+        <div class="beer-details-reviews">
+            <div>
+            <div class="rating">
+                <input type="radio" name="rating" value="5" id="5" /><label
+                for="5"
+                >☆</label>
+                <input type="radio" name="rating" value="4" id="4" /><label
+                for="4"
+                >☆</label>
+                <input type="radio" name="rating" value="3" id="3" /><label
+                for="3"
+                >☆</label>
+                <input type="radio" name="rating" value="2" id="2" /><label
+                for="2"
+                >☆</label>
+                <input type="radio" name="rating" value="1" id="1" /><label
+                for="1"
+                >☆</label>
+            </div>
+
+            <div class="rating-all">
+            <a href="">See all reviews</a>
+            </div>
+
+            </div>
+
+
+        </div>
+
+        <div class="beer-details-shopping-cart-control">
+
+            <button id="first-button" class="btn btn-secondary">+</button>
+            <input class="amount" type="number" value="0" min="0">
+            <button id="second-button" class="btn btn-secondary">-</button>
+
+            <script type="text/javascript">
+                document.querySelector("#first-button").addEventListener("click", () => {
+                    let numberBeers = Number(document.querySelector(".amount").value)
+                        document.querySelector(".amount").value = ++numberBeers;
+                })
+                document.querySelector("#second-button").addEventListener("click", () => {
+                     let numberBeers = Number(document.querySelector(".amount").value)
+                     if(document.querySelector(".amount").value > 0) {
+                        document.querySelector(".amount").value = --numberBeers;
+                     }
+                })
+            </script>
+
+            <button  class="btn btn-primary btn-lg active">Add to cart</button>
+
+        </div>
+    </div>
+    </div>
 </div>

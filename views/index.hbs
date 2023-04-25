@@ -2,15 +2,17 @@
   <div class="header-content">
     <h1>CRAFTY BREWS</h1>
     <h4>Explore a world of unique and delicious beer.</h4>
-    <button
-      onclick="location.href='/auth/signup'"
-      type="button"
-      class="btn btn-warning"
-    >Sign Up</button>
-    <button
-      onclick="location.href='/auth/login'"
-      type="button"
-      class="btn btn-outline-warning"
-    >Log In</button>
+    {{#unless user}}
+      <button
+        onclick="location.href='/auth/signup'"
+        type="button"
+        class="btn btn-warning"
+      >Sign Up</button>
+      <button
+        onclick="location.href='/auth/login'"
+        type="button"
+        class="btn btn-outline-warning"
+      >Log In</button>
+    {{/unless}}  
   </div>
 </div>
