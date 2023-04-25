@@ -52,8 +52,20 @@ p {
   background-size: 100% auto;
 }
 
+.about-title {
+  background-image: url("/images/bg-2.jpg");
+}
+
+.contact-title {
+  background-image: url("/images/bg-3.jpg");
+}
+
 .header-title .btn {
   margin: 10px;
+}
+
+.header-content {
+  max-width: 800px;
 }
 
 .header-content h1 {
