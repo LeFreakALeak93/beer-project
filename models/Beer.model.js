@@ -8,7 +8,16 @@ const beerSchema = new Schema({
   },
   type: {
     type: String,
-    enum: ["IPA", "Lager", "Stout", "Bock Beer"],
+    enum: [
+      "Helles",
+      "IPA",
+      "Pale Ale",
+      "Lager",
+      "Sour",
+      "Porter",
+      "Stout",
+      "Pilsner",
+    ],
     required: true,
   },
   description: {
