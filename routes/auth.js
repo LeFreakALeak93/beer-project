@@ -7,7 +7,7 @@ router.get("/auth/signup", (req, res, next) => {
 });
 
 router.post("/auth/signup", (req, res, next) => {
-  const { username, password } = req.body;
+  const { username, password, role } = req.body;
 
   // Validation
   // Check if username is empty
@@ -36,7 +36,7 @@ router.post("/auth/signup", (req, res, next) => {
       const hash = bcrypt.hashSync(password, salt);
 
       // Create user
-      User.create({ username, password: hash })
+      User.create({ username, password: hash, role })
         .then((createdUser) => {
           res.redirect("/auth/login");
         })

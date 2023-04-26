@@ -1,4 +1,5 @@
 const express = require("express");
+
 const router = require("express").Router()
 const User = require("../models/User.model")
 const Beer = require("../models/Beer.model")
@@ -15,6 +16,7 @@ router.get("/beer/beer-library", (req, res, next) => {
 // Get one single beer
 router.get("/beer/create-beer", (req, res) => {
   res.render("create-beer")
+
 });
 
 // Create new beer

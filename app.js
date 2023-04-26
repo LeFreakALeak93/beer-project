@@ -13,6 +13,14 @@ const express = require("express");
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
 
+hbs.registerHelper("if_equal", function (role, def, opts) {
+  if (role === def) {
+    return opts.fn(this);
+  } else {
+    return opts.inverse(this);
+  }
+});
+
 const app = express();
 
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
@@ -23,20 +31,21 @@ const capitalize = require("./utils/capitalize");
 const projectName = "second-project";
 app.locals.appTitle = `CraftyBrews`;
 
-const session = require("express-session")
-const MongoStore = require("connect-mongo")
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
 
 app.use(
-    session({
-        secret: process.env.SESSION_SECRET,
-        cookie: { maxAge: 1000 * 60 * 60 * 24 },
-        resave: true,
-        saveUninitialized: true,
-        store: MongoStore.create({
-            mongoUrl: process.env.MONGODB_URI
-        })
-    })
-)
+  session({
+    secret: process.env.SESSION_SECRET,
+    cookie: { maxAge: 1000 * 60 * 60 * 24 },
+    resave: true,
+    saveUninitialized: true,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URI,
+    }),
+  })
+);
+
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");
 app.use("/", indexRoutes);
