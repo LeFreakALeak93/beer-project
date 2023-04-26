@@ -4,12 +4,14 @@
 
         
         <div class="beer-details-image-container">
-            <div class="new-bier-image"><p>Upload image here</p></div>
+            <img src="/images/default-beer.svg" alt="Beer">
+            {{!-- <div class="new-bier-image"><p>Upload image here</p></div> --}}
         </div>
         
         <div class="beer-details-first-container__information create-bier-info">
-            
-            <form action="/beer/create-beer" method="POST">
+
+            <form action="/beer/create-beer" method="POST" enctype="multipart/form-data">
+
                 <h1>Add new beer</h1>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -21,7 +23,7 @@
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <label class="input-group-text" for="beer-type">Options</label>
+                        <label class="input-group-text" for="beer-type">Type</label>
                     </div>
 
                     <select class="custom-select" id="beer-type" name="type">
@@ -39,7 +41,7 @@
 
                 <div class="input-group">
                     <div class="input-group-prepend">
-                        <span for="description" class="input-group-text">With textarea</span>
+                        <span for="description" class="input-group-text">Beer description</span>
                     </div>
                     <textarea type="text" name="description" class="form-control" aria-label="With textarea"></textarea>
                 </div>
@@ -58,6 +60,18 @@
                     <input type="number" name="alcoholPercentage" class="form-control" aria-label="Sizing example input" aria-describedby="name">
                 </div>
 
+{{!--                 <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span for="ImgPath" class="input-group-text" id="ImgPath">Upload image</span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="ImgPath" aria-describedby="ImgPath">
+                        <label name="ImgPath" type="file" class="custom-file-label" for="ImgPath">Choose file</label>
+                    </div>
+                </div> --}}
+
+                  <input type="file" id="ImgPath" name="ImgPath">
+                    
 
                 <button class="btn btn-warning">Add Beer</button>
             </form>

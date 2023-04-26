@@ -1,5 +1,5 @@
 const express = require("express");
-
+const { uploader, cloudinary } = require("../config/cloudinary.js");
 const router = require("express").Router();
 const User = require("../models/User.model");
 const Beer = require("../models/Beer.model");
@@ -20,11 +20,27 @@ router.get("/beer/create-beer", (req, res) => {
   res.render("create-beer", { user: user });
 });
 
-// Create new beer
-router.post("/beer/create-beer", (req, res) => {
+router.post("/beer/create-beer", uploader.single("ImgPath"), (req, res) => {
   const user = req.session.user;
-  Beer.create(req.body)
-    .then((beer) => res.redirect("/beer/beer-library"))
+
+  const { name, type, description, price, alcoholPercentage } = req.body;
+
+  let ImgPath;
+  if (req.file?.path != undefined) {
+    ImgPath = req.file.path;
+  } else {
+    ImgPath = "/images/default-beer.png";
+  }
+
+  Beer.create({
+    name,
+    type,
+    description,
+    price,
+    alcoholPercentage,
+    ImgPath,
+  })
+    .then((beer) => res.redirect("beer-library"))
 
     .catch((error) => console.log(error));
 });
@@ -49,11 +65,26 @@ router.post("/beer/beer-details/:beerId", (req, res) => {
 });
 
 // Remove beer (only admin)
-router.get("/beer/beer-details/:beerId/delete", (req, res) => {
+/* router.get("/beer/beer-details/:beerId/delete", (req, res) => {
   const user = req.session.user;
   Beer.findByIdAndDelete(req.params.beerId)
 
     .then(() => res.redirect("/beer/beer-library"))
+
+    .catch((error) => console.log(error));
+}); */
+
+router.get("/beer/beer-details/:beerId/delete", (req, res) => {
+  const user = req.session.user;
+  Beer.findByIdAndDelete(req.params.beerId)
+
+    .then((deletedBeer) => {
+      if (deletedBeer.ImgPath) {
+        // delete the image on cloudinary
+        cloudinary.uploader.destroy(deletedBeer.publicId);
+      }
+      res.redirect("/");
+    })
 
     .catch((error) => console.log(error));
 });
