@@ -102,6 +102,8 @@ p {
   display: flex;
   flex-wrap: wrap;
   background: transparent;
+  width: 97%;
+  margin-left: 0.5%;
 }
 .form-element {
   margin-top: 20px;
@@ -141,12 +143,12 @@ p {
   top: 65px; /* Where it should stick to */
 }
 .library-search {
-  background-color: #f5f5ef;
+  background-color: #ffffff;
   border-radius: 8px;
   align-items: center;
   margin-top: 25px;
   margin-bottom: 10px;
-  width: 20%;
+  width: 400px;
   height: 40;
   transition-property: width;
   transition-duration: 0.5s;
@@ -159,7 +161,7 @@ p {
 
 /* When the input field gets focus, change its width to 100% */
 .library-search:focus {
-  width: 40%;
+  width: 600px;
 }
 .library-search:focus::placeholder {
   color: transparent;
@@ -167,9 +169,11 @@ p {
 
 .beer-image-container {
   height: 100%;
+  width: 50%;
 }
 .beer-container {
   flex: 1;
+  width: 50%;
 }
 .card-img {
   align-items: center;
