@@ -1,20 +1,29 @@
 <div class="content-box-wrapper">
     <div>
-    <h1>Welcome Back <span style="color:goldenrod"> {{user.username}} </span> ! <br></h1>
+        <h1>Welcome Back <span style="color:goldenrod"> {{user.username}} </span> ! <br></h1>
 
-    {{#if_equal user.role "admin"}}
-         <h2> You are a {{user.role}} and you can 
-        <a href="/beer/create-beer"> add </a> , 
-         edit and delete beers.
-        </h2>
-    {{/if_equal}}
+        {{#if_equal user.role "admin"}}
+            <h2> You are a {{user.role}} and you can 
+            <a href="/beer/create-beer"> add </a> , 
+            edit and delete beers.
+            </h2>
+        {{/if_equal}}
 
-    {{#if_equal user.role "user"}}
-        <h2> Come in and check our <a href="/beer/beer-library"> beers </a> ! </h2>
-    {{/if_equal}}
+        {{#if_equal user.role "user"}}
+            <h2> Come in and check our <a href="/beer/beer-library"> beers </a> ! </h2>
+        {{/if_equal}}
+
+        
+        <h3> This is your whislist </h3>
+        {{#each beers}}
+            <img
+                style="height: 50px; width: auto"
+                src="{{ImgPath}}"
+                alt="Generic Description of the beer"
+                /><a href="/beer/beer-details/{{_id}}"><h4 >{{name}}</h4></a>
+        {{/each}}
     
-    <a href="/auth/logout" class="btn btn-warning form-element">Logout</a>
-    
- 
+        <a href="/auth/logout" class="btn btn-warning form-element">Logout</a>
+
     </div>
 </div>

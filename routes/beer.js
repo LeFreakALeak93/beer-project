@@ -64,8 +64,11 @@ router.post("/beer/create-beer", uploader.single("ImgPath"), (req, res) => {
 // Go to beer details
 router.get("/beer/beer-details/:beerId", (req, res) => {
   const user = req.session.user;
+  const isFav = user.favs.includes(req.params.beerId);
   Beer.findOne({ _id: req.params.beerId })
-    .then((beer) => res.render("beer-details", { beer: beer, user: user }))
+    .then((beer) =>
+      res.render("beer-details", { beer: beer, user: user, isFav })
+    )
 
     .catch((error) => console.log(error));
 });
@@ -144,5 +147,34 @@ router.post(
       .catch((err) => next(err));
   }
 );
+
+// FAVS
+
+router.get("/beer/add-fav/:beerId", (req, res) => {
+  const user = req.session.user;
+  let favs = user.favs || [];
+  const beerId = req.params.beerId;
+
+  if (favs.includes(beerId)) {
+    favs = favs.filter((fav) => fav !== beerId);
+  } else {
+    favs.push(req.params.beerId);
+  }
+
+  req.session.user.favs = favs;
+
+  const backURL = req.header("Referer") || "/";
+
+  console.log(user);
+
+  User.findByIdAndUpdate(user._id, {
+    favs,
+  })
+    .then((user) => {
+      console.log("user updated to ", user);
+      res.redirect(backURL);
+    })
+    .catch((error) => console.log(error));
+});
 
 module.exports = router;

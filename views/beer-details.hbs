@@ -15,7 +15,7 @@
                 {{/if_equal}}
 
                 {{#if_equal user.role "user"}}
-                <a class="buttons-beer-top" href=""><img src="/images/icon-heart-outline.svg"></img> Add to wishlist</a>
+                <a class="buttons-beer-top" href="/beer/add-fav/{{beer._id}}"><img src="/images/icon-heart-{{#if isFav}}filled{{else}}outline{{/if}}.svg"></img> {{#if isFav}}Remove from {{else}}Add to {{/if}} wishlist</a>
                 {{/if_equal}}
 
                 <div class="edit-remove beer-details-buttons">
