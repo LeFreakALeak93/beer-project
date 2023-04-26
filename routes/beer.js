@@ -14,15 +14,18 @@ router.get("/beer/beer-library", (req, res, next) => {
     .catch((err) => next(err));
 });
 
-// Search for a beer in the beer library page 
+// Search for a beer in the beer library page
 router.post("/beer/beer-library", (req, res, next) => {
   const { queriedBeer } = req.body;
-  Beer.find({ "name": { $regex: queriedBeer, $options: "i" } })
-    .then(Beer => {
+  Beer.find({ name: { $regex: queriedBeer, $options: "i" } })
+    .then((Beer) => {
       if (Beer.length !== 0) {
-        res.render("beer-details", { beer: Beer[0] })
-      }
-      else res.render("beer-library", { message: "We could not find any beers matching your search query. Try again please. " })
+        res.render("beer-details", { beer: Beer[0] });
+      } else
+        res.render("beer-library", {
+          message:
+            "We could not find any beers matching your search query. Try again please. ",
+        });
     })
     .catch((error) => next(error));
 });
@@ -107,27 +110,39 @@ router.get("/beer/:beerId/edit-beer", (req, res, next) => {
   const beerId = req.params.beerId;
   const beerTypes = Beer.schema.path("type").enumValues;
   Beer.findById(beerId)
-    .then((Beer) => {
-      console.log(Beer)
-      res.render("edit-beer", { Beer: Beer,  beerTypes: beerTypes });
+    .then((beer) => {
+      console.log(beer);
+      res.render("edit-beer", { beer: beer, beerTypes: beerTypes });
     })
     .catch((err) => next(err));
 });
 
-router.post("/beer/:beerId/edit-beer", (req, res, next) => {
-  const { name, type, description, price, alcoholPercentage } = req.body;
+router.post(
+  "/beer/:beerId/edit-beer",
+  uploader.single("ImgPath"),
+  (req, res, next) => {
+    const { name, type, description, price, alcoholPercentage } = req.body;
 
-  Beer.findByIdAndUpdate(req.params.beerId, {
-    name,
-    type,
-    description,
-    price,
-    alcoholPercentage
-  })
-    .then(() => {
-      res.redirect(`/beer/beer-details/${req.params.beerId}`);
+    let ImgPath;
+    if (req.file?.path != undefined) {
+      ImgPath = req.file.path;
+    } else {
+      ImgPath = "/images/default-beer.png";
+    }
+
+    Beer.findByIdAndUpdate(req.params.beerId, {
+      name,
+      type,
+      description,
+      price,
+      alcoholPercentage,
+      ImgPath,
     })
-    .catch((err) => next(err));
-});
+      .then(() => {
+        res.redirect(`/beer/beer-details/${req.params.beerId}`);
+      })
+      .catch((err) => next(err));
+  }
+);
 
 module.exports = router;

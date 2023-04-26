@@ -3,13 +3,13 @@
     <div class="beer-details-first-container">
 
       <div class="beer-details-image-container">
-        <div class="new-bier-image"><p>Upload image here</p></div>
+        <img src="{{beer.ImgPath}}" alt="Beer">
       </div>
 
       <div class="beer-details-first-container__information create-bier-info">
 
-        <form action="/beer/{{Beer._id}}/edit-beer" method="POST">
-          <h1>Edit: {{Beer.name}}</h1>
+        <form action="/beer/{{beer._id}}/edit-beer" method="POST" enctype="multipart/form-data">
+          <h1>Edit: {{beer.name}}</h1>
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -21,7 +21,7 @@
               class="form-control"
               aria-label="Sizing example input"
               aria-describedby="name"
-              value="{{Beer.name}}"
+              value="{{beer.name}}"
             />
           </div>
 
@@ -55,14 +55,14 @@
               name="description"
               class="form-control"
               aria-label="With textarea"
-            >{{Beer.description}}</textarea>
+            >{{beer.description}}</textarea>
           </div>
 
           <br />
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span for="price" class="input-group-text" id="name">Price:</span>
+              <span for="price" class="input-group-text" id="name">Price €:</span>
             </div>
             <input
               data-type="currency"
@@ -70,7 +70,7 @@
               class="form-control"
               aria-label="Sizing example input"
               aria-describedby="name"
-              value="{{Beer.price}}€"
+              value="{{beer.price}}"
             />
           </div>
 
@@ -88,9 +88,11 @@
               class="form-control"
               aria-label="Sizing example input"
               aria-describedby="name"
-              value="{{Beer.alcoholPercentage}}"
+              value="{{beer.alcoholPercentage}}"
             />
           </div>
+
+          <input type="file" id="ImgPath" name="ImgPath">
 
           <button class="btn btn-warning" type="submit">Save beer</button>
         </form>
