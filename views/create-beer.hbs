@@ -1,32 +1,68 @@
-<div class="content-box-wrapper">
-    <div>
-        <h1>Add new beer</h1>
-        <div>
-            <svg></svg>
+<div class="beer-details-wrapper">
+<div class="beer-details">
+<div class="beer-details-first-container">
+
+        
+        <div class="beer-details-image-container">
+            <div class="new-bier-image"><p>Upload image here</p></div>
+        </div>
+        
+        <div class="beer-details-first-container__information create-bier-info">
+            
+            <form action="/beer/create-beer" method="POST">
+                <h1>Add new beer</h1>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span for="name" class="input-group-text" id="name">Name</span>
+                    </div>
+                    <input type="text" name="name" class="form-control" aria-label="Sizing example input" aria-describedby="name">
+                </div>
+
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="beer-type">Options</label>
+                    </div>
+
+                    <select class="custom-select" id="beer-type" name="type">
+                        <option selected>Choose beer type...</option>
+                        <option value="Helles">Helles</option>
+                        <option value="IPA">IPA</option>
+                        <option value="Pale Ale">Pale Ale</option>
+                        <option value="Lager">Lager</option>
+                        <option value="Sour">Sour</option>
+                        <option value="Porter">Porter</option>
+                        <option value="Stout">Stout</option>
+                        <option value="Pilsner">Pilsner</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span for="description" class="input-group-text">With textarea</span>
+                    </div>
+                    <textarea type="text" name="description" class="form-control" aria-label="With textarea"></textarea>
+                </div>
+                <br>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span for="price" class="input-group-text" id="name">Price</span>
+                    </div>
+                    <input type="number" name="price" class="form-control" aria-label="Sizing example input" aria-describedby="name">
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span for="alcoholPercentage" class="input-group-text" id="name">Alcohol percentage</span>
+                    </div>
+                    <input type="number" name="alcoholPercentage" class="form-control" aria-label="Sizing example input" aria-describedby="name">
+                </div>
+
+
+                <button class="btn btn-warning">Add Beer</button>
+            </form>
         </div>
 
-        <form action="/beer/create-beer" method="POST">
-            <label for="name">Name</label>
-            <input type="text" name="name">
-
-            <label for="beer-type">Beer type</label>
-            <select name="type">
-                <option value="IPA">IPA</option>
-                <option value="Lager">Lager</option>
-                <option value="Stout">Stout</option>
-                <option value="Bock Beer">Bock Beer</option>
-            </select>
-
-            <label for="description">Description</label>
-            <input type="text" name="description">
-
-            <label for="price">Price</label>
-            <input type="number" name="price">
-
-            <label for="alcoholPercentage">Alcohol percentage</label>
-            <input type="text" name="alcoholPercentage">
-
-            <button>Add beer</button>
-        </form>
-    </div>
+</div>
+</div>
 </div>

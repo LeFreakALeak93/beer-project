@@ -45,7 +45,8 @@ p {
   text-align: center;
   margin: 0;
   padding: 30px;
-  height: 100vh;
+  margin-top: 80px;
+  min-height: calc(100vh - 130px);
   color: white;
   background-image: url("/images/bg.jpg");
   background-position: center top;
@@ -54,6 +55,14 @@ p {
 
 .about-title {
   background-image: url("/images/bg-2.jpg");
+}
+
+.container-names {
+  margin-top: 50px;
+  display: flex;
+  gap: 120px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .contact-title {
@@ -123,6 +132,7 @@ p {
   padding: 0;
   margin: 0j;
 }
+
 .library-search-container {
   display: flex;
   justify-content: center;
@@ -154,6 +164,7 @@ p {
 .library-search:focus::placeholder {
   color: transparent;
 }
+
 .beer-image-container {
   height: 100%;
 }
@@ -199,8 +210,11 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   height: 80vh;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1300px;
 }
 
 .beer-details {
@@ -230,6 +244,25 @@ p {
 .beer-details-image-container img {
   width: 300px;
   height: auto;
+}
+.beer-infos {
+  margin: 40px auto;
+}
+.beer-details-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons-beer-top {
+  color: black;
+}
+
+.buttons-beer-top:hover {
+  color: black;
+}
+
+.edit-remove > a {
+  margin-left: 20px;
 }
 
 .beer-details-buttons > button {
@@ -314,6 +347,17 @@ input::-webkit-inner-spin-button {
 .rating:hover > input:checked ~ label:before {
   opacity: 0.4;
 }
+
+.new-bier-image {
+  min-height: 400px;
+  height: auto;
+  text-align: center;
+  background-color: #ebebeb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .cart-button {
   display: flex;
   background-color: transparent;
