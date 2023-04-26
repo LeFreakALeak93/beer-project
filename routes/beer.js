@@ -26,8 +26,7 @@ router.get("/beer/beer-details/:beerId", (req, res) => {
 
 // Edit beer details (only admin)
 router.post("/beer/beer-details/:beerId", (req, res) => {
-  // TODO: change albumId to beerId
-  Beer.findOneAndUpdate({ _id: req.params.albumId }, req.body)
+  Beer.findOneAndUpdate({ _id: req.params.beerId }, req.body)
     .then((beer) => res.render("beer-details", { beer: beer }))
 
     .catch((error) => console.log(error));
@@ -35,8 +34,7 @@ router.post("/beer/beer-details/:beerId", (req, res) => {
 
 // Remove beer (only admin)
 router.post("/beer/beer-details/:beerId/delete", (req, res) => {
-  // TODO: change albumId to beerId
-  Beer.findByIdAndDelete(req.params.albumId)
+  Beer.findByIdAndDelete(req.params.beerId)
 
     .then(() => res.render("beer-details"))
 

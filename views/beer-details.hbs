@@ -9,9 +9,10 @@
         <div class="beer-details-first-container__information">
 
             <div class="beer-details-buttons">
-
+                
                 <button class="beer-details-favorite-button"><img src="/images/icon-heart-outline.svg"></img>Add to wishlist</button>
-
+                
+                <div class="edit-remove"></div>
                 <button onclick="location.href='/beer-edit/beerId'"><img src="/images/icon-edit.svg">Edit</button>
                 <button onclick="location.href='/beer-remove/beerId'"><img src="/images//icon-delete.svg">Remove</button>
 
@@ -36,7 +37,7 @@
     <div class="beer-details-second-container">
 
         <div class="beer-details-reviews">
-            <div>
+           
             <div class="rating">
                 <input type="radio" name="rating" value="5" id="5" /><label
                 for="5"
@@ -54,36 +55,36 @@
                 for="1"
                 >☆</label>
             </div>
-
             <div class="rating-all">
-            <a href="">See all reviews</a>
+                <a href="">See all reviews</a>
             </div>
 
-            </div>
-
+            
 
         </div>
 
         <div class="beer-details-shopping-cart-control">
+            
+            <div class="buttons-shopping">
+                <button id="second-button" class="btn btn-secondary">-</button>
+                <input class="amount" type="number" value="0" min="0">
+                <button id="first-button" class="btn btn-secondary">+</button>
 
-            <button id="first-button" class="btn btn-secondary">+</button>
-            <input class="amount" type="number" value="0" min="0">
-            <button id="second-button" class="btn btn-secondary">-</button>
+                <script type="text/javascript">
+                    document.querySelector("#second-button").addEventListener("click", () => {
+                        let numberBeers = Number(document.querySelector(".amount").value)
+                        if(document.querySelector(".amount").value > 0) {
+                            document.querySelector(".amount").value = --numberBeers;
+                        }
+                    })
+                    document.querySelector("#first-button").addEventListener("click", () => {
+                        let numberBeers = Number(document.querySelector(".amount").value)
+                            document.querySelector(".amount").value = ++numberBeers;
+                    })
+                </script>
 
-            <script type="text/javascript">
-                document.querySelector("#first-button").addEventListener("click", () => {
-                    let numberBeers = Number(document.querySelector(".amount").value)
-                        document.querySelector(".amount").value = ++numberBeers;
-                })
-                document.querySelector("#second-button").addEventListener("click", () => {
-                     let numberBeers = Number(document.querySelector(".amount").value)
-                     if(document.querySelector(".amount").value > 0) {
-                        document.querySelector(".amount").value = --numberBeers;
-                     }
-                })
-            </script>
-
-            <button  class="btn btn-primary btn-lg active">Add to cart</button>
+                <button  class="btn btn-warning  active">Add to cart</button>
+            </div>
 
         </div>
     </div>
