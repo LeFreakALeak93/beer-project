@@ -97,9 +97,8 @@ p {
 }
 
 .content-container {
-  top: 80px;
-  padding: 20px;
-  padding-top: 100px;
+  padding: 10px;
+  padding-top: 20px;
   display: flex;
   flex-wrap: wrap;
   background: transparent;
@@ -134,6 +133,38 @@ p {
   margin: 0j;
 }
 
+.library-search-container {
+  display: flex;
+  justify-content: center;
+  position: sticky; /* The magic */
+  z-index: 1; /* Ensure it stays on top of other player divs */
+  top: 65px; /* Where it should stick to */
+}
+.library-search {
+  background-color: #f5f5ef;
+  border-radius: 8px;
+  align-items: center;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  width: 20%;
+  height: 40;
+  transition-property: width;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* When the input field gets focus, change its width to 100% */
+.library-search:focus {
+  width: 40%;
+}
+.library-search:focus::placeholder {
+  color: transparent;
+}
+
 .beer-image-container {
   height: 100%;
 }
@@ -155,7 +186,7 @@ p {
   margin-bottom: 10;
 }
 .card-text {
-  font-size: 14;
+  font-size: 16;
   font-family: "Merriweather", serif;
   font-weight: 500;
   line-height: 1.1rem;
@@ -166,7 +197,7 @@ p {
   line-height: 0.6rem;
   font-family: "Merriweather", serif;
   text-align: center;
-  font-size: 16px;
+  font-size: 19px;
   margin-bottom: 9;
 }
 /* .card-body h6 {
@@ -328,8 +359,11 @@ input::-webkit-inner-spin-button {
 }
 
 .cart-button {
+  display: flex;
   background-color: transparent;
   text-align: center;
   font-weight: 600;
   margin-top: 2px;
+  justify-content: center;
+  align-items: baseline;
 }

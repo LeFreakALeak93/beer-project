@@ -1,3 +1,11 @@
+<div class="library-search-container">
+  <input
+    class="library-search"
+    type="text"
+    name="search"
+    placeholder="Search for.."
+  />
+</div>
 <div class="content-container">
   {{#each beers}}
     <div
@@ -42,6 +50,7 @@
             </div>
 
             <div class="cart-button">
+              {{!-- {{#if_equal user.role "user"}} --}}
               <button type="button" class="btn btn-success">
                 <span class="glyphicon glyphicon-shopping-cart">Add to cart
                   <svg
@@ -57,7 +66,9 @@
                     />
                   </svg></span>
               </button>
+              {{!-- {{/if_equal}} --}}
             </div>
+
           </div>
         </div>
       </div>
