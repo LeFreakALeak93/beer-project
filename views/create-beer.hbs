@@ -1,32 +1,44 @@
 <div class="content-box-wrapper">
-    <div>
-        <h1>Add new beer</h1>
-        <div>
-            <svg></svg>
+<div class="beer-details">
+<div class="beer-details-first-container">
+
+        
+        <div class="beer-details-image-container">
+            <div class="new-bier-image"><h4>Upload image here</h4></div>
+        </div>
+        
+        <div class="beer-details-first-container__information">
+            <h1>Add new beer</h1>
+            <form action="/beer/create-beer" method="POST">
+                <label for="name">Name</label>
+                <input type="text" name="name">
+                <br>
+
+                <label for="beer-type">Beer type</label>
+                <select name="type">
+                    <option value="IPA">IPA</option>
+                    <option value="Lager">Lager</option>
+                    <option value="Stout">Stout</option>
+                    <option value="Bock Beer">Bock Beer</option>
+                </select>
+                <br>
+
+                <label for="description">Description</label>
+                <input type="text" name="description">
+                <br>
+
+                <label for="price">Price</label>
+                <input type="number" name="price">
+                <br>
+
+                <label for="alcoholPercentage">Alcohol percentage</label>
+                <input type="text" name="alcoholPercentage">
+                <br>
+
+                <button  class="btn btn-warning  active">Add Beer</button>
+            </form>
         </div>
 
-        <form action="/beer/create-beer" method="POST">
-            <label for="name">Name</label>
-            <input type="text" name="name">
-
-            <label for="beer-type">Beer type</label>
-            <select name="type">
-                <option value="IPA">IPA</option>
-                <option value="Lager">Lager</option>
-                <option value="Stout">Stout</option>
-                <option value="Bock Beer">Bock Beer</option>
-            </select>
-
-            <label for="description">Description</label>
-            <input type="text" name="description">
-
-            <label for="price">Price</label>
-            <input type="number" name="price">
-
-            <label for="alcoholPercentage">Alcohol percentage</label>
-            <input type="text" name="alcoholPercentage">
-
-            <button>Add beer</button>
-        </form>
-    </div>
+</div>
+</div>
 </div>

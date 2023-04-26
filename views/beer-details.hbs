@@ -10,21 +10,23 @@
 
             <div class="beer-details-buttons">
                 
-                <button class="beer-details-favorite-button"><img src="/images/icon-heart-outline.svg"></img>Add to wishlist</button>
-                
-                <div class="edit-remove"></div>
-                <button onclick="location.href='/beer-edit/beerId'"><img src="/images/icon-edit.svg">Edit</button>
-                <button onclick="location.href='/beer-remove/beerId'"><img src="/images//icon-delete.svg">Remove</button>
+                <a class="buttons-beer-top" href=""><img src="/images/icon-heart-outline.svg"></img> Add to wishlist</a>
 
+                <div class="edit-remove beer-details-buttons">
+
+                <a class="buttons-beer-top" href="/beer-edit/{{beer._id}}"><img src="/images/icon-edit.svg"> Edit</a>
+                <a class="buttons-beer-top" href="/beer-remove/{{beer._id}}"><img src="/images/icon-delete.svg"> Remove</a>
+                
+                </div>
             </div>
 
-        <div>
+        <div class="beer-infos">
 
             <h1>{{beer.name}}</h1>
-            <h3>{{beer.type}}</h3>
+            <h3 style="font-weight: 800;">{{beer.type}} | {{beer.alcoholPercentage}}</h3>
+            <br>
             <p>Price:<b> {{beer.price}}</b></p>
             <p>{{beer.description}}</p>
-            <p>{{beer.alcoholPercentage}}</p>
 
         </div>
 
