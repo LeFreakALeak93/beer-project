@@ -148,24 +148,32 @@ p {
   height: 100%;
 }
 .card-title {
+  font-family: "Vina Sans", cursive;
   text-align: center;
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 10;
 }
 .card-text {
-  font-size: 12px;
-  font-weight: 600;
-  line-height: 1rem;
+  font-size: 14;
+  font-family: "Merriweather", serif;
+  font-weight: 500;
+  line-height: 1.1rem;
+  margin-bottom: 10;
+  text-align: center;
 }
 .card-text-two {
-  line-height: 0.3rem;
+  line-height: 0.6rem;
+  font-family: "Merriweather", serif;
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
+  margin-bottom: 9;
 }
-.card-body h6 {
+/* .card-body h6 {
   text-align: center;
   font-weight: 600;
-}
+  margin-bottom: 0;
+} */
 
 .beer-details-wrapper {
   display: flex;
@@ -320,4 +328,5 @@ input::-webkit-inner-spin-button {
   background-color: transparent;
   text-align: center;
   font-weight: 600;
+  margin-top: 2px;
 }
