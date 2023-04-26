@@ -87,12 +87,23 @@ p {
   height: 80vh;
 }
 
+.content-container {
+  top: 80px;
+  padding: 20px;
+  padding-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  background: transparent;
+}
 .form-element {
   margin-top: 20px;
 }
 
 .forms {
   max-width: 300px;
+}
+.row {
+  flex-wrap: nowrap;
 }
 
 .form-check {
@@ -112,6 +123,38 @@ p {
   right: 0;
   padding: 0;
   margin: 0j;
+}
+.beer-image-container {
+  height: 100%;
+}
+.beer-container {
+  flex: 1;
+}
+.card-img {
+  align-items: center;
+  display: flex;
+  margin-top: 20px;
+  width: 270px;
+  height: 100%;
+}
+.card-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+}
+.card-text {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1rem;
+}
+.card-text-two {
+  line-height: 0.3rem;
+  text-align: center;
+  font-size: 14px;
+}
+.card-body h6 {
+  text-align: center;
+  font-weight: 600;
 }
 
 .beer-details-wrapper {
@@ -212,7 +255,7 @@ input::-webkit-inner-spin-button {
 .rating > label {
   position: relative;
   width: 1em;
-  font-size: 24px;
+  font-size: 18px;
   color: #ffd600;
   cursor: pointer;
 }
@@ -232,4 +275,9 @@ input::-webkit-inner-spin-button {
 
 .rating:hover > input:checked ~ label:before {
   opacity: 0.4;
+}
+.cart-button {
+  background-color: transparent;
+  text-align: center;
+  font-weight: 600;
 }

@@ -1,7 +1,17 @@
 const express = require("express");
+
 const router = require("express").Router();
 const User = require("../models/User.model");
 const Beer = require("../models/Beer.model");
+
+// Go to beer library
+router.get("/beer/beer-library", (req, res, next) => {
+  Beer.find()
+    .then((beersfromDB) => {
+      res.render("beer-library", { beers: beersfromDB });
+    })
+    .catch((err) => next(err));
+});
 
 // Get one single beer
 router.get("/beer/create-beer", (req, res) => {

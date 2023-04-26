@@ -17,6 +17,7 @@
     "mongodb": "^5.3.0",
     "mongoose": "^7.0.4",
     "morgan": "^1.10.0",
+    "punkapi-javascript-wrapper": "^1.0.2",
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
