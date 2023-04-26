@@ -35,6 +35,7 @@ router.get("/beer/beer-details/:beerId", (req, res) => {
 });
 
 // Edit beer details (only admin)
+
 router.post("/beer/beer-details/:beerId", (req, res) => {
   Beer.findOneAndUpdate({ _id: req.params.beerId }, req.body)
     .then((beer) => res.render("beer-details", { beer: beer }))
@@ -43,10 +44,10 @@ router.post("/beer/beer-details/:beerId", (req, res) => {
 });
 
 // Remove beer (only admin)
-router.post("/beer/beer-details/:beerId/delete", (req, res) => {
+router.get("/beer/beer-details/:beerId/delete", (req, res) => {
   Beer.findByIdAndDelete(req.params.beerId)
 
-    .then(() => res.render("beer-details"))
+    .then(() => res.redirect("beer-library"))
 
     .catch((error) => console.log(error));
 });
