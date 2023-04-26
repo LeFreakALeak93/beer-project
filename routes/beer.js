@@ -14,6 +14,19 @@ router.get("/beer/beer-library", (req, res, next) => {
     .catch((err) => next(err));
 });
 
+// Search for a beer in the beer library page 
+router.post("/beer/beer-library", (req, res, next) => {
+  const { queriedBeer } = req.body;
+  Beer.find({ "name": { $regex: queriedBeer, $options: "i" } })
+    .then(Beer => {
+      if (Beer.length !== 0) {
+        res.render("beer-details", { beer: Beer[0] })
+      }
+      else res.render("beer-library", { message: "We could not find any beers matching your search query. Try again please. " })
+    })
+    .catch((error) => next(error));
+});
+
 // Get one single beer
 router.get("/beer/create-beer", (req, res) => {
   const user = req.session.user;
