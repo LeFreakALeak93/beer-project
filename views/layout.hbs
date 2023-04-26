@@ -32,7 +32,7 @@
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
             <li class="nav-item mt-3 mt-md-0">
-              <a class="nav-link" href="/beers">Beer Finder</a>
+              <a class="nav-link" href="/beer/beer-library">Beer Library</a>
             </li>
 
             <li class="nav-item mt-3 mt-md-0">
@@ -79,15 +79,18 @@
                     Profile</button>
                 </li>
 
-                <li class="nav-item">
-                  <button href="/shopping-cart" class="btn btn-light button-icon">
-                    <img
-                      class="iconNavi"
-                      src="/images/icon-shopping-cart.svg"
-                      alt="Shopping Cart"
-                    />
-                  </button>
-                </li>
+                {{#if_equal user.role "user"}}
+                  <li class="nav-item">
+                    <button href="/shopping-cart" class="btn btn-light button-icon">
+                      <img
+                        class="iconNavi"
+                        src="/images/icon-shopping-cart.svg"
+                        alt="Shopping Cart"
+                      />
+                    </button>
+                  </li>
+                 {{/if_equal}}
+
               {{/if}}
 
             </ul>
