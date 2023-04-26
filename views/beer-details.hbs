@@ -20,7 +20,7 @@
 
                 <div class="edit-remove beer-details-buttons">
                 {{#if_equal user.role "admin"}}
-                    <a class="buttons-beer-top" href="/beer-edit/{{beer._id}}"><img src="/images/icon-edit.svg"> Edit</a>
+                    <a class="buttons-beer-top" href="/beer/{{beer._id}}/edit-beer"><img src="/images/icon-edit.svg"> Edit</a>
                     <a class="buttons-beer-top" href="/beer/beer-details/{{beer._id}}/delete"><img src="/images/icon-delete.svg"> Remove</a>
                 {{/if_equal}}
                 </div>  
