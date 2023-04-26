@@ -21,7 +21,6 @@ require("./config")(app);
 // default value for title local
 const capitalize = require("./utils/capitalize");
 const projectName = "second-project";
-
 app.locals.appTitle = `CraftyBrews`;
 
 const session = require("express-session")
