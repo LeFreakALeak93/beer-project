@@ -48,8 +48,10 @@ This project is licensed under the MIT License. See the LICENSE file for details
 Contributors
 Joshua Beck
 https://github.com/JoshRBeck
+
 Lukas Julich
 https://github.com/LeFreakALeak93
+
 Silvia Sarmiento
 https://github.com/silviflare
 
