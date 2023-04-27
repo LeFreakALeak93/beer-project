@@ -195,17 +195,18 @@ p {
   background-color: #ffffff;
   border-radius: 8px;
   align-items: center;
-  margin-top: 25px;
+  margin-top: 30px;
   margin-bottom: 10px;
   width: 400px;
   height: 40;
   transition-property: width;
   transition-duration: 0.5s;
-  transition-timing-function: ease-in-out;
+  transition-timing-function: cubic-bezier(0.2, -2, 0.8, 2);
   transition-delay: 0s;
   text-align: center;
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 400;
+  font-family: "Vina Sans", cursive;
 }
 
 /* When the input field gets focus, change its width to 100% */
