@@ -229,7 +229,7 @@ p {
   align-items: center;
   display: flex;
   margin-top: 20px;
-  width: 270px;
+  width: auto;
   height: 270px;
   max-width: 270px;
   max-height: 270px;
