@@ -221,15 +221,15 @@ p {
   width: 50%;
 }
 .beer-container {
-  flex: 1;
-  width: 50%;
+  background: transparent;
+  border: 0;
 }
 .card-img {
   align-items: center;
   display: flex;
   margin-top: 20px;
-  width: 270px;
-  height: 100%;
+  width: auto;
+  height: 270px;
 }
 .card-title {
   font-family: "Vina Sans", cursive;

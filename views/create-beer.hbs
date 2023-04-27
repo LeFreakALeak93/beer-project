@@ -1,74 +1,108 @@
 <div class="beer-details-wrapper">
-<div class="beer-details">
-<div class="beer-details-first-container">
+  <div class="beer-details">
+    <div class="beer-details-first-container">
 
-        
-        <div class="beer-details-image-container">
-            <img src="/images/default-beer.svg" alt="Beer">
-        </div>
-        
-        <div class="beer-details-first-container__information create-bier-info">
+      <div class="beer-details-image-container">
+        <img src="/images/default-beer.svg" alt="Beer" />
+      </div>
 
-            <form action="/beer/create-beer" method="POST" enctype="multipart/form-data">
+      <div class="beer-details-first-container__information create-bier-info">
 
-                <h1>Add new beer</h1>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span for="name" class="input-group-text" id="name">Name</span>
-                    </div>
-                    <input type="text" name="name" class="form-control" aria-label="Sizing example input" aria-describedby="name">
-                </div>
+        <form
+          action="/beer/create-beer"
+          method="POST"
+          enctype="multipart/form-data"
+        >
 
+          <h1>Add new beer</h1>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span for="name" class="input-group-text" id="name">Name</span>
+            </div>
+            <input
+              type="text"
+              name="name"
+              class="form-control"
+              aria-label="Sizing example input"
+              aria-describedby="name"
+            />
+          </div>
 
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <label class="input-group-text" for="beer-type">Type</label>
-                    </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="beer-type">Type</label>
+            </div>
 
-                    <select class="custom-select" id="beer-type" name="type">
-                        <option selected>Choose beer type...</option>
-                        <option value="Helles">Helles</option>
-                        <option value="IPA">IPA</option>
-                        <option value="Pale Ale">Pale Ale</option>
-                        <option value="Lager">Lager</option>
-                        <option value="Sour">Sour</option>
-                        <option value="Porter">Porter</option>
-                        <option value="Stout">Stout</option>
-                        <option value="Pilsner">Pilsner</option>
-                    </select>
-                </div>
+            <select class="custom-select" id="beer-type" name="type">
+              <option selected>Choose beer type...</option>
+              <option value="Helles">Helles</option>
+              <option value="IPA">IPA</option>
+              <option value="Pale Ale">Pale Ale</option>
+              <option value="Lager">Lager</option>
+              <option value="Sour">Sour</option>
+              <option value="Porter">Porter</option>
+              <option value="Stout">Stout</option>
+              <option value="Pilsner">Pilsner</option>
+            </select>
+          </div>
 
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span for="description" class="input-group-text">Beer description</span>
-                    </div>
-                    <textarea type="text" name="description" class="form-control" aria-label="With textarea"></textarea>
-                </div>
-                <br>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span for="price" class="input-group-text" id="name">Price</span>
-                    </div>
-                    <input type="number" name="price" class="form-control" aria-label="Sizing example input" aria-describedby="name">
-                </div>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span for="description" class="input-group-text">Beer description</span>
+            </div>
+            <textarea
+              type="text"
+              name="description"
+              class="form-control"
+              aria-label="With textarea"
+            ></textarea>
+          </div>
+          <br />
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span for="price" class="input-group-text" id="name">Price</span>
+            </div>
+            <input
+              type="number"
+              name="price"
+              class="form-control"
+              aria-label="Sizing example input"
+              aria-describedby="name"
+            />
+          </div>
 
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span for="alcoholPercentage" class="input-group-text" id="name">Alcohol percentage</span>
-                    </div>
-                    <input type="number" name="alcoholPercentage" class="form-control" aria-label="Sizing example input" aria-describedby="name">
-                </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span
+                for="alcoholPercentage"
+                class="input-group-text"
+                id="name"
+              >Alcohol percentage</span>
+            </div>
+            <input
+              type="number"
+              name="alcoholPercentage"
+              class="form-control"
+              aria-label="Sizing example input"
+              aria-describedby="name"
+            />
+          </div>
 
-                <div class="input-group mb-3">
-                    <div>
-                        <input type="file" class="form-control button-upload" id="ImgPath" name="ImgPath">
-                    </div>
-                </div>
+          <div class="input-group mb-3">
+            <div>
+              <input
+                type="file"
+                class="form-control button-upload"
+                id="ImgPath"
+                name="ImgPath"
+              />
+            </div>
+          </div>
 
-                <button class="btn btn-warning">Add Beer</button>
-            </form>
-        </div>
+          <button class="btn btn-warning">Add Beer</button>
+        </form>
+      </div>
 
-</div>
-</div>
+    </div>
+  </div>
 </div>
