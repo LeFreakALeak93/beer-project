@@ -1,7 +1,7 @@
 const express = require("express");
 const { uploader, cloudinary } = require("../config/cloudinary.js");
 const router = require("express").Router();
-const User = require("../models/User.model");
+const User = require("../models/User.model.js");
 const Beer = require("../models/Beer.model");
 
 // Go to beer library
