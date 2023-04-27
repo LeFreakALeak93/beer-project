@@ -73,25 +73,6 @@ router.get("/beer/beer-details/:beerId", (req, res) => {
     .catch((error) => console.log(error));
 });
 
-// Edit beer details (only admin)
-
-// router.post("/beer/beer-details/:beerId", (req, res) => {
-//   const user = req.session.user;
-//   Beer.findOneAndUpdate({ _id: req.params.beerId }, req.body)
-//     .then((beer) => res.render("beer-details", { beer: beer, user: user }))
-
-//     .catch((error) => console.log(error));
-// });
-
-// Remove beer (only admin)
-/* router.get("/beer/beer-details/:beerId/delete", (req, res) => {
-  const user = req.session.user;
-  Beer.findByIdAndDelete(req.params.beerId)
-
-    .then(() => res.redirect("/beer/beer-library"))
-
-    .catch((error) => console.log(error));
-}); */
 
 router.get("/beer/beer-details/:beerId/delete", (req, res) => {
   const user = req.session.user;
