@@ -8,8 +8,8 @@ a {
 }
 
 h1 {
-  font-weight: 700;
-  font-size: 3.2rem;
+  font-size: 4rem;
+  font-family: "Vina Sans", cursive;
 }
 
 h2 {
@@ -133,6 +133,55 @@ p {
   right: 0;
   padding: 0;
   margin: 0j;
+}
+
+.content-box-profile {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 80px;
+}
+
+.profile-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 160px;
+}
+
+.wish-list-profile {
+  padding-top: 15px;
+}
+.wish-list-profile-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px auto;
+  padding: 20px;
+  font-family: "Vina Sans", cursive;
+  font-size: 3rem;
+  top: 5px;
+  color: #000;
+  background-color: #ffc107;
+}
+
+.wish-list-profile-title img {
+  margin: auto 15px;
+}
+
+.profile-whishlist {
+  background-color: white;
+  display: flex;
+  margin: 10px auto;
+  align-items: center;
+  padding: 20px;
+  padding-right: 50px;
+}
+
+.profile-whishlist a {
+  line-height: 0px;
+  position: relative;
+  font-family: "Vina Sans", cursive;
+  color: black;
 }
 
 .library-search-container {
@@ -360,6 +409,10 @@ input::-webkit-inner-spin-button {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.button-upload {
+  padding: 4px;
 }
 
 .cart-button {

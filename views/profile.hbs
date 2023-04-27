@@ -1,29 +1,52 @@
 <div class="content-box-wrapper">
-    <div>
-        <h1>Welcome Back <span style="color:goldenrod"> {{user.username}} </span> ! <br></h1>
+    <div class="content-box-profile">
+        <div class="profile-left">
+            <div>
+                <h1>Welcome Back <span style="color:#ffc107"> {{user.username}} </span> ! <br></h1>
+                
+                {{#if_equal user.role "admin"}}
+                    <h4> Hello, you are a seller.</h4>
+                {{/if_equal}}
 
-        {{#if_equal user.role "admin"}}
-            <h2> You are a {{user.role}} and you can 
-            <a href="/beer/create-beer"> add </a> , 
-            edit and delete beers.
-            </h2>
-        {{/if_equal}}
+                {{!-- {{#if_equal user.role "user"}}
+                    <h3> Come in and check our <a href="/beer/beer-library"> beers</a></h3>
+                {{/if_equal}} --}}
 
-        {{#if_equal user.role "user"}}
-            <h2> Come in and check our <a href="/beer/beer-library"> beers </a> ! </h2>
-        {{/if_equal}}
-
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <button onclick="location.href='/beer/beer-library'" type="button" class="btn btn-warning">Check out all our beers 🍺🍺🍺</button>
+            <br>
+            {{#if_equal user.role "admin"}}
+            <button onclick="location.href='/beer/create-beer'" type="button" class="btn btn-warning">Add a new beer 💥🍺</button>
+            {{/if_equal}}
+            <a href="/auth/logout" class="btn btn-dark form-element">Logout</a>
         
-        <h3> This is your whislist </h3>
-        {{#each beers}}
-            <img
-                style="height: 50px; width: auto"
-                src="{{ImgPath}}"
-                alt="Generic Description of the beer"
-                /><a href="/beer/beer-details/{{_id}}"><h4 >{{name}}</h4></a>
-        {{/each}}
-    
-        <a href="/auth/logout" class="btn btn-warning form-element">Logout</a>
+        </div>
 
+        <div class="wish-list-profile">
+            {{#if_equal user.role "user"}}
+                <div class="wish-list-profile-title">
+                <img src="/images/icon-heart-filled.svg">
+                <h3>  Whislist </h3>
+                <img src="/images/icon-heart-filled.svg">
+                </div>
+                {{#each beers}}
+                    <div class="profile-whishlist">
+                        
+                        <img
+                            style="height: 50px; width: auto"
+                            src="{{ImgPath}}"
+                            alt="{{name}}"
+                        />
+
+                        <a href="/beer/beer-details/{{_id}}"> <h3 >{{name}}</h3></a>
+                    </div>
+                {{/each}}
+
+            {{/if_equal}}
+        </div>
     </div>
 </div>
